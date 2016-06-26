@@ -1,0 +1,722 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="preparation
+os:  1234[root@node3 server]# uname -aLinux node3.dev.lei 2.6.32-431.el6.x86_64 #1 SMP Sun Nov 10 22:19:54 EST 2013 x86_64 x86_64 x86_64 GNU/Linux[root@node3 server]# cat /etc/redhat-relea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装db2">
+<meta property="og:url" content="http://yoursite.com/profession/3-db2-installation/index.html">
+<meta property="og:site_name" content="Life Log">
+<meta property="og:description" content="preparation
+os:  1234[root@node3 server]# uname -aLinux node3.dev.lei 2.6.32-431.el6.x86_64 #1 SMP Sun Nov 10 22:19:54 EST 2013 x86_64 x86_64 x86_64 GNU/Linux[root@node3 server]# cat /etc/redhat-relea">
+<meta property="og:image" content="http://lionlu.u.qiniudn.com/profession-post3-pic1.png">
+<meta property="og:updated_time" content="2016-05-16T15:50:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安装db2">
+<meta name="twitter:description" content="preparation
+os:  1234[root@node3 server]# uname -aLinux node3.dev.lei 2.6.32-431.el6.x86_64 #1 SMP Sun Nov 10 22:19:54 EST 2013 x86_64 x86_64 x86_64 GNU/Linux[root@node3 server]# cat /etc/redhat-relea">
+<meta name="twitter:image" content="http://lionlu.u.qiniudn.com/profession-post3-pic1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <title> 安装db2 | Life Log </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Life Log</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                安装db2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-31T00:00:00+08:00" content="2015-10-31">
+              2015-10-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/installation-deployment/" itemprop="url" rel="index">
+                    <span itemprop="name">installation&deployment</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/installation-deployment/database/" itemprop="url" rel="index">
+                    <span itemprop="name">database</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="preparation"><a href="#preparation" class="headerlink" title="preparation"></a>preparation</h4><ul>
+<li>os:  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 server]# uname -a</span><br><span class="line">Linux node3.dev.lei 2.6.32-431.el6.x86_64 #1 SMP Sun Nov 10 22:19:54 EST 2013 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line">[root@node3 server]# cat /etc/redhat-release</span><br><span class="line">Red Hat Enterprise Linux Server release 6.5 (Santiago)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>product files:<ul>
+<li>installation package：DB2_Svr_10.5.0.3_Linux_x86-64.tar.gz</li>
+<li>fixpack: v10.5fp5_linuxx64_universal_fixpack.tar.gz</li>
+<li>license file: ESE_AUSI_QS_Activation_10.5.0.4.zip</li>
+</ul>
+</li>
+<li><a href="https://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.qb.server.doc/doc/c0008711.html" target="_blank" rel="external">installation method</a><ul>
+<li><a href="https://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.qb.server.doc/doc/t0059589.html" target="_blank" rel="external">DB2 Setup wizard</a>: run  ./db2setup</li>
+<li>Response file</li>
+<li><a href="https://www-01.ibm.com/support/knowledgecenter/SSEPGG_9.7.0/com.ibm.db2.luw.qb.server.doc/doc/t0007068.html" target="_blank" rel="external">db2_install command</a>: run ./db2_install</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="installing"><a href="#installing" class="headerlink" title="installing"></a>installing</h4><ul>
+<li>2.1 extract the product file and change directory into the product directory  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 ~]# gzip -d DB2_Svr_10.5.0.3_Linux_x86-64.tar.gz</span><br><span class="line">[root@node3 ~]# tar -xvf DB2_Svr_10.5.0.3_Linux_x86-64.tar</span><br><span class="line">[root@node3 ~]# cd server</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>2.2 <a href="https://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.qb.server.doc/doc/r0025127.html" target="_blank" rel="external">prerequisites</a></p>
+<ul>
+<li><p>enter  <code>./db2prereqcheck -i</code> command to check the installation requirements</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 server]# ./db2prereqcheck -i</span><br><span class="line">Requirement not matched for DB2 database &quot;Server&quot; . Version: &quot;10.5.0.3&quot;.</span><br><span class="line">Summary of prerequisites that are not met on the current system:  </span><br><span class="line">...</span><br><span class="line">DBT3514W  The db2prereqcheck utility failed to find the following 32-bit library file: &quot;libstdc++.so.6&quot;.</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>find the necessary libraries and install them</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 server]# yum install -y libstdc++.x86_64</span><br><span class="line">[root@node3 server]# yum install -y libstdc++.i686</span><br><span class="line">[root@node3 server]# yum install -y pam.x86_64</span><br><span class="line">[root@node3 server]# yum install -y pam.i686</span><br><span class="line">[root@node3 server]# yum install -y libibmad.x86_64</span><br><span class="line">[root@node3 server]# yum install -y libcxgb3.x86_64</span><br><span class="line">[root@node3 server]# yum install -y ibutils.x86_64</span><br><span class="line">[root@node3 server]# yum install -y ibsim.x86_64</span><br><span class="line">[root@node3 server]# yum install -y librdmacm.x86_64</span><br><span class="line">[root@node3 server]# yum install -y libibcm.x86_64</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>run <code>./db2prereqcheck -i</code> again to make sure requirement matched.</p>
+</li>
+</ul>
+</li>
+<li><p>2.3 enter <code>./db2_install</code> command to start installation,  then choose the <code>default directory</code> , <code>product name</code>, and <code>pureScale Feature</code>.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 server]# ./db2_install</span><br><span class="line">DBI1324W  Support of the db2_install command is deprecated. For</span><br><span class="line">  more information, see the DB2 Information Center.</span><br><span class="line">Default directory for installation of products - /opt/ibm/db2/V10.5</span><br><span class="line"></span><br><span class="line">***********************************************************</span><br><span class="line">Install into default directory (/opt/ibm/db2/V10.5) ? [yes/no]</span><br><span class="line">yes</span><br><span class="line">Specify one of the following keywords to install DB2 products.</span><br><span class="line"> </span><br><span class="line">  SERVER</span><br><span class="line">  CONSV</span><br><span class="line">  EXP</span><br><span class="line">  CLIENT</span><br><span class="line">  RTCL</span><br><span class="line"> </span><br><span class="line">Enter &quot;help&quot; to redisplay product names.</span><br><span class="line"> </span><br><span class="line">Enter &quot;quit&quot; to exit.</span><br><span class="line"> </span><br><span class="line">***********************************************************</span><br><span class="line">SERVER</span><br><span class="line">***********************************************************</span><br><span class="line">Do you want to install the DB2 pureScale Feature? [yes/no]</span><br><span class="line">no</span><br><span class="line">DB2 installation is being initialized.</span><br><span class="line"> </span><br><span class="line"> Total number of tasks to be performed: 48</span><br><span class="line">Total estimated time for all tasks to be performed: 1873 second(s)</span><br><span class="line"> </span><br><span class="line">Task #1 start</span><br><span class="line">Description: Checking license agreement acceptance</span><br><span class="line">Estimated time 1 second(s)</span><br><span class="line">Task #1 end</span><br><span class="line"> </span><br><span class="line">Task #2 start</span><br><span class="line">Description: Base Client Support for installation with root privileges</span><br><span class="line">Estimated time 3 second(s)</span><br><span class="line">Task #2 end</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.4 <a href="https://www-01.ibm.com/support/knowledgecenter/SSEPGG_9.7.0/com.ibm.db2.luw.qb.server.doc/doc/t0007067.html" target="_blank" rel="external">Manually configuring after installation</a>:</p>
+<ul>
+<li><p>Create groups and user IDs for db2<br><img src="http://lionlu.u.qiniudn.com/profession-post3-pic1.png" alt="1"></p>
+<ul>
+<li><p>Create groups:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd -g 999 db2iadm1</span><br><span class="line">groupadd -g 998 db2fadm1</span><br><span class="line">groupadd -g 997 dasadm1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create users :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useradd -u 1004 -g db2iadm1 -m -d /home/db2inst1 db2inst1</span><br><span class="line">useradd -u 1003 -g db2fadm1 -m -d /home/db2fenc1 db2fenc1</span><br><span class="line">useradd -u 1002 -g dasadm1 -m -d /home/dasusr1 dasusr1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Set initial password:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">passwd db2inst1</span><br><span class="line">passwd db2fenc1</span><br><span class="line">passwd dasusr1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Create a DB2 Administration Server (DAS).<br>Run the <code>dascrt</code> command: <code>DB2DIR/instance/dascrt -u dasusr1</code>(DB2DIR specifies the path where the DB2 database product was installed)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 server]# cd /opt/ibm/db2/V10.5/instance/</span><br><span class="line">[root@node3 instance]# ./dascrt -u dasusr1</span><br><span class="line">DBI1070I  Program dascrt completed successfully.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create an instance.<br>Run the <code>db2icrt</code> command: <code>DB2DIR/instance/db2icrt -a server -u db2fenc1 db2inst1</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 instance]# ./db2icrt -a server -u db2fenc1 db2inst1</span><br><span class="line">DBI1446I  The db2icrt command is running.</span><br><span class="line">...</span><br><span class="line">DBI1070I  Program db2icrt completed successfully.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Configure TCP/IP communications for a DB2 instance</p>
+<ul>
+<li><p>Add the Connection entry to the services file:<br><code>db2c_db2inst1  50000/tcp  # DB2 connection service port</code><br>(if you want to use the default port 60006, skip this step)</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 ~]#  sed -i &apos;$a db2c_db2inst1  50000/tcp&apos; /etc/services</span><br><span class="line">[root@node3 ~]#  cat /etc/services |grep db2</span><br><span class="line">ibm-db2         523/tcp                 # IBM-DB2</span><br><span class="line">ibm-db2         523/udp                 # IBM-DB2</span><br><span class="line">questdb2-lnchr  5677/tcp                # Quest Central DB2 Launchr</span><br><span class="line">questdb2-lnchr  5677/udp                # Quest Central DB2 Launchr</span><br><span class="line">qdb2service     45825/tcp               # Qpuncture Data Access Service</span><br><span class="line">qdb2service     45825/udp               # Qpuncture Data Access Service</span><br><span class="line">DB2_db2inst1    60006/tcp</span><br><span class="line">DB2_db2inst1_1  60007/tcp</span><br><span class="line">DB2_db2inst1_2  60008/tcp</span><br><span class="line">DB2_db2inst1_3  60009/tcp</span><br><span class="line">DB2_db2inst1_4  60010/tcp</span><br><span class="line">DB2_db2inst1_END        60011/tcp</span><br><span class="line">db2c_db2inst1  50000/tcp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Update the database manager configuration file on the server:<br>Log on as db2inst1 and enter the following commands:<br><code>db2 update database manager configuration using svcename SERIVCE_NAME</code>, where SERIVCE_NAME can be 50000 or db2c_db2inst1 .</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 ~]# su db2inst1</span><br><span class="line">[db2inst1@node3 ~]$ db2 update database manager configuration using svcename 50000</span><br><span class="line">DB20000I  The UPDATE DATABASE MANAGER CONFIGURATION command completed successfully.</span><br><span class="line">[db2inst1@node3 ~]$ db2 get dbm cfg |grep SVCENAME</span><br><span class="line">TCP/IP Service name                          (SVCENAME) = 50000</span><br><span class="line">SSL service name                         (SSL_SVCENAME) =</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Setting communication protocols for a DB2 instance: <code>db2set DB2COMM=tcpip</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[db2inst1@node3 server]$ db2set DB2COMM=tcpip </span><br><span class="line">[db2inst1@node3 server]$ db2set -all</span><br><span class="line">[i] DB2COMM=TCPIP</span><br><span class="line">[i] DB2AUTOSTART=NO</span><br><span class="line">[g] DB2SYSTEM=node3</span><br><span class="line">[g] DB2INSTDEF=db2inst1</span><br><span class="line">[g] DB2ADMINSERVER=dasusr1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="install-the-fix-pack"><a href="#install-the-fix-pack" class="headerlink" title="install the fix pack"></a><a href="https://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.qb.server.doc/doc/t0006352.html?lang=en" target="_blank" rel="external">install the fix pack</a></h4><ul>
+<li>3.1 uncompress fix packs:     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 ~]# gunzip -c v10.5fp5_linuxx64_universal_fixpack.tar.gz | tar -xvf -</span><br><span class="line">[root@node3 ~]# cd universal</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>3.2 check the installation  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 universal]# ./db2ls</span><br><span class="line">Install PathLevel   Fix Pack   Special Install Number   Install Date                  Installer UID</span><br><span class="line">---------------------------</span><br><span class="line">/opt/ibm/db2/V10.5  10.5.0.3        3                   Tue Oct 27 04:07:25 2015 CST   0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>3.3 install the fix pack:<br>  When installing the fix pack, db2 should not be running. So, if  db2 processes and DAS have been started, stop them([see sector 6]). Then enter <code>./installFixPack -b DB2DIR1</code> command.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 universal]# ./installFixPack -b /opt/ibm/db2/V10.5/</span><br><span class="line">Do you want to choose a different installation directory for the fix pack? [yes/no]</span><br><span class="line"> </span><br><span class="line">------------------------------------------------------------------------------------</span><br><span class="line">no</span><br><span class="line"> </span><br><span class="line">DBI1017I  installFixPack is updating the DB2 product(s) installed in</span><br><span class="line">     location /opt/ibm/db2/V10.5/.</span><br><span class="line">DB2 installation is being initialized.</span><br><span class="line"> </span><br><span class="line"> Total number of tasks to be performed: 46</span><br><span class="line">Total estimated time for all tasks to be performed: 1757 second(s)</span><br><span class="line"> </span><br><span class="line">Task #1 start</span><br><span class="line">Description: Stopping DB2 Fault Monitor</span><br><span class="line">Estimated time 10 second(s)</span><br><span class="line">Task #1 end</span><br><span class="line">...</span><br><span class="line">[root@node3 universal]# ./db2ls</span><br><span class="line">Install PathLevel   Fix Pack   Special Install Number   Install Date                  Installer UID</span><br><span class="line">---------------------------</span><br><span class="line">/opt/ibm/db2/V10.5  10.5.0.5        5                   Fri May  8 18:22:10 2015 HKT   0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="apply-db2-licenses"><a href="#apply-db2-licenses" class="headerlink" title="apply db2 licenses"></a><a href="https://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.qb.server.doc/doc/t0023608.html?cp=SSEPGG_10.5.0%2F2-0-1-8-1" target="_blank" rel="external">apply db2 licenses</a></h4><ul>
+<li>4.1 Extract ESE_AUSI_QS_Activation_10.5.0.4.zip, get the license file db2ese_t.lic</li>
+<li>4.2 log on as db2inst1, run the command: <code>db2licm -a db2ese_t.lic</code>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[db2inst1@node3 ~]$ db2licm -a db2ese_u.lic</span><br><span class="line">LIC1402I  License added successfully.</span><br><span class="line">LIC1426I  This product is now licensed for use as outlined in your License Agreement.  USE OF THE PRODUCT CONSTITUTES ACCEPTANCE OF THE TERMS OF THE IBM LICENSE AGREEMENT, LOCATED IN THE FOLLOWING DIRECTORY: &quot;/opt/ibm/db2/V10.5/license/en_US.iso88591&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>4.3 check it:  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[db2inst1@node3 ~]$ db2licm -l</span><br><span class="line">Product name:                     &quot;DB2 Enterprise Server Edition&quot;</span><br><span class="line">License type:                     &quot;Authorized User Single Install&quot;</span><br><span class="line">Expiry date:                      &quot;Permanent&quot;</span><br><span class="line">Product identifier:               &quot;db2ese&quot;</span><br><span class="line">Version information:              &quot;10.5&quot;</span><br><span class="line">Enforcement policy:               &quot;Soft Stop&quot;</span><br><span class="line">Number of licensed authorized users: &quot;25&quot;</span><br><span class="line">Features:</span><br><span class="line">IBM DB2 BLU Acceleration In-Memory Offering:          &quot;Not licensed&quot;</span><br><span class="line">IBM DB2 Performance Management Offering:              &quot;Not licensed&quot;</span><br><span class="line">IBM DB2 Encryption Offering:                          &quot;Not licensed&quot;</span><br><span class="line">IBM DB2 Business Application Continuity Offering:     &quot;Not licensed&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="some-common-db2-command"><a href="#some-common-db2-command" class="headerlink" title="some common db2 command"></a>some common db2 command</h4><ul>
+<li>start db2<br> <code>log on as db2inst1: db2start
+ log on as dasadmin: db2admin start</code></li>
+<li>stop db2<br>  <code>log on as db2inst1：
+  db2 force applications all
+  db2 terminate
+  db2stop
+  log on as dasadmin: db2admin stop</code></li>
+<li>check db version<br> <code>db2ls</code></li>
+<li>list all database<br> <code>db2 list db directory</code></li>
+<li>connect to database<br>  <code>db2 connect to db DATABASE_NAME user USER_NAME using PASSWORD</code></li>
+<li>list tables<br>  <code>db2 list tables for schema SCHEMA_NAME</code></li>
+</ul>
+<h4 id="references"><a href="#references" class="headerlink" title="references:"></a>references:</h4><ul>
+<li><a href="https://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.kc.doc/welcome.html" target="_blank" rel="external">BM DB2 10.5 for Linux, Unix and Windows documentation</a></li>
+<li><a href="http://www.ibmdba.com/?p=230" target="_blank" rel="external">Install DB2 10.5 on Redhat Linux 6.5 for x86_64</a>(中文)</li>
+<li><a href="http://sopace.blog.51cto.com/1227753/692137" target="_blank" rel="external">用db2_install命令行安装DB2数据库</a></li>
+<li><a href="http://blog.csdn.net/tuber727/article/details/17117109" target="_blank" rel="external">linux下DB2安装与卸载</a></li>
+<li><a href="http://www.ibm.com/developerworks/data/library/techarticle/0302gao/0302gao.html" target="_blank" rel="external">Installing IBM DB2 for Linux, UNIX, and Windows transparently with your application</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/profession/2-message-push/" rel="next" title="使用HTTP长轮询来实现Comet">
+                <i class="fa fa-chevron-left"></i> 使用HTTP长轮询来实现Comet
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/profession/1-Install-spss-statistics-desktop/" rel="prev" title="安装Spss Statistics Desktop">
+                安装Spss Statistics Desktop <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Leon" />
+          <p class="site-author-name" itemprop="name">Leon</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#preparation"><span class="nav-number">1.</span> <span class="nav-text">preparation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#installing"><span class="nav-number">2.</span> <span class="nav-text">installing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#install-the-fix-pack"><span class="nav-number">3.</span> <span class="nav-text">install the fix pack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply-db2-licenses"><span class="nav-number">4.</span> <span class="nav-text">apply db2 licenses</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#some-common-db2-command"><span class="nav-number">5.</span> <span class="nav-text">some common db2 command</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#references"><span class="nav-number">6.</span> <span class="nav-text">references:</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leon</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
